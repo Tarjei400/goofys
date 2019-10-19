@@ -2,14 +2,14 @@
 
 [Goofys](https://github.com/kahing/goofys) S3 Filesystem Docker Implementation.
 
-
+##For of this image, it allows to change endpoint to s3 compatible storages
 ## Examples
 
 ```sh
 export AWS_ACCESS_KEY_ID=`grep aws_access_key_id ~/.aws/credentials | awk '{print $3}'`
 export AWS_SECRET_ACCESS_KEY=`grep aws_secret_access_key ~/.aws/credentials | awk '{print $3}'`
 
-docker run -it --rm --privileged -e BUCKET="bucket" -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY cloudposse/goofys
+docker run -it --rm --privileged -e BUCKET="bucket" -e ENDPOINT="https://s3.example.com" -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY cloudposse/goofys
 ```
 
 By default S3 bucket will be mounted under `/mnt/s3`, but you could customize the mount point by setting `MOUNT_DIR` environment variable.
